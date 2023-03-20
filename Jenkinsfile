@@ -12,7 +12,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		sh './hello'
+		sh './hello > hello.log'
+		archiveArtifacts artifacts: 'hello.log'
             }
         }
         stage('Deploy') {
